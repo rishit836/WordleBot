@@ -1,7 +1,7 @@
 import random
 import discord
 
-bot_token = "OTYzNjQzMzc0MjU3MTgwNzMy.YlZE1A.9Vvd0FfGtZkYmzwaBiuFqdms2Lc"
+bot_token = "secret"
 
 word_list = []
 global vocab, name_list, mode, leaderboard
