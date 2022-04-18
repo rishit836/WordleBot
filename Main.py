@@ -1,7 +1,7 @@
 import random
 import discord
 
-bot_token = "secret"
+bot_token = "OTYzNjQzMzc0MjU3MTgwNzMy.YlZE1A.9Vvd0FfGtZkYmzwaBiuFqdms2Lc"
 
 word_list = []
 global vocab, name_list, mode, leaderboard
@@ -19,7 +19,6 @@ with open('vocab.txt', "r") as f:
     vocab_data = f.read()
     vocab = vocab_data.split()
     print(len(vocab))
-
 
 global word, game
 game = False
@@ -43,7 +42,6 @@ def check(guess, actual_word):
     if len(guess_list) > 5 or len(guess_list) < 5:
         return "Give 5 letter word pls 🥺🙏"
     else:
-        print(guess)
         if guess.lower() in vocab:
             for i in range(0, 5):
                 if guess_list[i] != actual_word_list[i]:
@@ -90,7 +88,7 @@ async def on_message(message):
                 test_word = message.content.replace("!guess ", "")
                 if test_word != word:
                     return_string = check(test_word, word)
-                    await message.channel.send(' '.join(return_string))
+                    await message.channel.send(' '.join(return_string), reference=message)
 
                 if test_word == word:
                     old_word = word
@@ -103,7 +101,7 @@ async def on_message(message):
                 test_word = message.content.replace("!guess ", "")
                 if test_word.lower() != word:
                     return_string = check(test_word, word)
-                    await message.channel.send(' '.join(return_string))
+                    await message.channel.send(' '.join(return_string), reference=message)
 
                 if test_word == word:
                     old_word = word
